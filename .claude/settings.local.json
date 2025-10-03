@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(find:*)",
+      "Bash(brew services start:*)",
+      "Bash(/usr/local/opt/postgresql@14/bin/createdb:*)",
+      "Bash(/usr/local/opt/postgresql@14/bin/psql:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(npm run dev:*)",
+      "Bash(python3:*)",
+      "Bash(open /Users/alexhoward/CascadeProjects/windsurf-project-3/START_HERE.md)",
+      "Bash(/usr/libexec/ApplicationFirewall/socketfilterfw:*)",
+      "Bash(awk:*)",
+      "Bash(plutil:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
