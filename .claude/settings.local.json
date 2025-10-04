@@ -16,7 +16,8 @@
       "Bash(open /Users/alexhoward/CascadeProjects/windsurf-project-3/START_HERE.md)",
       "Bash(/usr/libexec/ApplicationFirewall/socketfilterfw:*)",
       "Bash(awk:*)",
-      "Bash(plutil:*)"
+      "Bash(plutil:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
