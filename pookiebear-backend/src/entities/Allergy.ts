@@ -19,6 +19,7 @@ export enum AllergySeverity {
   MILD = 'mild',
   MODERATE = 'moderate',
   SEVERE = 'severe',
+  LIFE_THREATENING = 'life-threatening',
 }
 
 @Entity('allergies')
@@ -36,7 +37,7 @@ export class Allergy {
   @Column({ type: 'varchar' })
   allergen: string;
 
-  @Column({ type: 'enum', enum: AllergyType })
+  @Column({ type: 'enum', enum: AllergyType, nullable: true })
   allergyType: AllergyType;
 
   @Column({ type: 'enum', enum: AllergySeverity })

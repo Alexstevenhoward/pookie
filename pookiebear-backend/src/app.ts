@@ -12,6 +12,7 @@ import authRoutes from './routes/authRoutes';
 import dogRoutes from './routes/dogRoutes';
 import healthRoutes from './routes/healthRoutes';
 import activityRoutes from './routes/activityRoutes';
+import uploadRoutes from './routes/upload';
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/dogs', dogRoutes);
 app.use('/api/v1/health', healthRoutes);
 app.use('/api/v1/activities', activityRoutes);
+app.use('/api/v1/upload', uploadRoutes);
 
 // 404 handler
 app.use((req: Request, res: Response) => {
