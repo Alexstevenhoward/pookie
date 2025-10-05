@@ -21,15 +21,16 @@
 | Phase 5: Activity Enhancements | 🔴 Not Started | P1 | 0/4 |
 | Phase 6: Reminders & Notifications | 🔴 Not Started | P1 | 0/5 |
 | Phase 7: Analytics & Charts | 🔴 Not Started | P1 | 0/4 |
-| Phase 8: Social & Community | 🔴 Not Started | P2 | 0/6 |
-| Phase 9: PookiePop Polish | 🔴 Not Started | P1 | 0/3 |
-| Phase 10: Testing & Quality | 🔴 Not Started | P0 | 0/8 |
-| Phase 11: Production Deployment | 🔴 Not Started | P0 | 0/7 |
-| Phase 12: Polish & UX | 🔴 Not Started | P2 | 0/6 |
+| Phase 8: Pookie Training System | 🔴 Not Started | P1 | 0/9 |
+| Phase 9: Social & Community | 🔴 Not Started | P2 | 0/6 |
+| Phase 10: PookiePop Polish | 🔴 Not Started | P1 | 0/3 |
+| Phase 11: Testing & Quality | 🔴 Not Started | P0 | 0/8 |
+| Phase 12: Production Deployment | 🔴 Not Started | P0 | 0/7 |
+| Phase 13: Polish & UX | 🔴 Not Started | P2 | 0/6 |
 
-**Total Tasks:** 66
+**Total Tasks:** 75
 **Completed:** 0
-**Remaining:** 66
+**Remaining:** 75
 
 ---
 
@@ -587,7 +588,155 @@
 
 ---
 
-## PHASE 8: Social & Community Features (P2)
+## PHASE 8: Pookie Training System (P1)
+**Goal:** Build gamified, delightful dog training experience
+**Impact:** Major differentiator, high engagement feature
+**Estimated Time:** 3-4 days
+
+### UX Philosophy
+- **One-screen mastery** - All features visible, no deep menus
+- **Micro-rewards everywhere** - Pookie mascot reacts, badges sparkle, confetti celebrates
+- **Universal language** - Rely on visuals (icons, colors, animations) over text
+- **Progressive depth** - Tap to expand, never multiple levels deep
+- **Personal touch** - Every message includes dog's name
+
+### Tasks
+
+#### 8.1 Training Dashboard Core
+- [ ] **Create TrainingDashboardView**
+  - Header with dog greeting ("Hi, Boba!" + avatar)
+  - 🔥 Streak chip with fire animation
+  - ⚙️ Settings button (⋯) for customization
+  - Hero progress ring (animated, large, centered)
+  - Daily goal display (e.g., "10m / 15m")
+  - Paw animation following ring path
+  - **Files:** Create `Views/Training/TrainingDashboardView.swift`
+  - **DoD:** Main training screen renders with all hero elements
+
+- [ ] **Create TrainingViewModel**
+  - @Published state: currentProgress, dailyGoal, streakDays, completedLessons
+  - Track training session time
+  - Calculate progress percentage
+  - Handle streak logic (consecutive days)
+  - Save progress to backend/local storage
+  - **Files:** Create `ViewModels/TrainingViewModel.swift`
+  - **DoD:** State management for training features
+
+#### 8.2 Progress Ring & Goal System
+- [ ] **Implement animated progress ring**
+  - Large circular progress indicator
+  - Animated paw icon following ring path
+  - Gradient fill (warm pink → peach → mint)
+  - Tap to show summary modal
+  - Spring animation on progress updates
+  - **Files:** Create `Views/Training/Components/ProgressRingView.swift`
+  - **DoD:** Beautiful, animated progress visualization
+
+- [ ] **Create goal customization**
+  - Bottom sheet with duration selector
+  - Preset goals: 10 / 15 / 20 minutes
+  - Visual slider with paw icons
+  - Save preference to user profile
+  - **Files:** Create `Views/Training/GoalSettingsSheet.swift`
+  - **DoD:** Users can set daily training goals
+
+#### 8.3 Lesson Library
+- [ ] **Create lesson card components**
+  - Pastel gradient backgrounds
+  - Large icons for each lesson type
+  - Three states: Locked 🔒 / Available 🟢 / Completed ✅
+  - Category filter chips (All, Basics, Manners, Tricks)
+  - Horizontal scroll with 3 visible cards
+  - **Files:** Create `Views/Training/Components/LessonCardView.swift`
+  - **DoD:** Scrollable lesson preview on dashboard
+
+- [ ] **Build lesson detail modal**
+  - Full-screen modal on tap
+  - Video/animation area (placeholder initially)
+  - Step-by-step instructions (1-2 slides max)
+  - "Mark Complete" button
+  - Pop-up animation with haptic feedback
+  - **Files:** Create `Views/Training/LessonDetailView.swift`
+  - **DoD:** Can view and complete lessons
+
+- [ ] **Create lesson data models**
+  - Lesson struct: id, title, category, difficulty, duration, steps, videoUrl, isLocked, isCompleted
+  - Hardcoded lesson library with 10-15 basic lessons:
+    - Basics: Sit, Stay, Come, Down, Leave It
+    - Manners: No Jump, Gentle, Wait, Heel
+    - Tricks: Shake, Roll Over, Play Dead, Spin
+  - **Files:** Create `Models/TrainingLesson.swift`, `Data/LessonLibrary.swift`
+  - **DoD:** Complete lesson catalog ready
+
+#### 8.4 Streaks & Badges System
+- [ ] **Create streak tracking**
+  - Calculate consecutive training days
+  - 🔥 Fire icon with animated flicker
+  - Color intensity increases with streak length
+  - Confetti celebration on new streak milestone
+  - Reset logic (missed day = streak resets)
+  - **Files:** Update `ViewModels/TrainingViewModel.swift`
+  - **DoD:** Streak accurately tracks daily consistency
+
+- [ ] **Build badge system**
+  - Badge data model: id, name, icon, description, requirement, isUnlocked
+  - Badge types:
+    - First Steps 🐾 (Complete 1 lesson)
+    - Focus Pup 🏅 (Complete 3 lessons in one day)
+    - Good Listener 🎖 (5-day streak)
+    - Training Master 👑 (Complete all basic lessons)
+    - Week Warrior 🔥 (7-day streak)
+  - Badge gallery modal (4-column grid)
+  - Shimmering animation on locked badges
+  - "Next badge preview" on dashboard
+  - **Files:** Create `Models/Badge.swift`, `Views/Training/BadgeGalleryView.swift`
+  - **DoD:** Badge system motivates and rewards users
+
+#### 8.5 Training Session Flow
+- [ ] **Create "Start Training" CTA**
+  - Large pill-shaped button at bottom
+  - Bright gradient (peach → mint)
+  - Bounce animation on press + haptic feedback
+  - State changes: Ready → In Progress → Complete
+  - Glow trail effect
+  - **Files:** Create `Views/Training/Components/StartTrainingButton.swift`
+  - **DoD:** Clear, delightful CTA to begin training
+
+- [ ] **Build active training session view**
+  - Timer display (counts up during session)
+  - Selected lesson displayed prominently
+  - Pause / Resume / Finish buttons
+  - Progress updates in real-time
+  - Celebratory animation on completion
+  - **Files:** Create `Views/Training/ActiveSessionView.swift`
+  - **DoD:** Users can track live training sessions
+
+#### 8.6 Customization & Settings
+- [ ] **Create training settings modal**
+  - Accessed via ⋯ button in header
+  - Visual controls only (no text inputs):
+    - Daily goal slider (10/15/20 min with paw icons)
+    - Lesson type toggles (Basics, Tricks, Manners)
+    - Notification toggle ("Remind me to train")
+    - Sound effects toggle
+    - Dog selection (avatar picker if multiple dogs)
+  - Clay design system styling
+  - **Files:** Create `Views/Training/TrainingSettingsView.swift`
+  - **DoD:** Full customization without complexity
+
+**Phase 8 Success Criteria:**
+- ✅ Training dashboard is joyful and intuitive
+- ✅ Progress ring animates smoothly
+- ✅ Lessons are browsable and completable
+- ✅ Streaks and badges motivate daily use
+- ✅ Settings are visual and simple
+- ✅ Every interaction feels rewarding (animations, haptics, celebrations)
+- ✅ Pookie mascot reacts to progress
+- ✅ 10-year-old could master in seconds
+
+---
+
+## PHASE 9: Social & Community Features (P2)
 **Goal:** Enable user interaction and engagement
 **Impact:** Differentiation, viral growth
 **Estimated Time:** 3-4 days
@@ -670,7 +819,7 @@
 
 ---
 
-## PHASE 9: PookiePop Polish (P1)
+## PHASE 10: PookiePop Polish (P1)
 **Goal:** Complete game integration
 **Impact:** Unique differentiator, engagement
 **Estimated Time:** 1-2 days
@@ -739,7 +888,7 @@
 
 ---
 
-## PHASE 10: Testing & Quality Assurance (P0)
+## PHASE 11: Testing & Quality Assurance (P0)
 **Goal:** Ensure production-ready quality
 **Impact:** App stability and user trust
 **Estimated Time:** 3-4 days
@@ -860,7 +1009,7 @@
 
 ---
 
-## PHASE 11: Production Deployment (P0)
+## PHASE 12: Production Deployment (P0)
 **Goal:** Launch to production
 **Impact:** App goes live
 **Estimated Time:** 2-3 days
@@ -980,7 +1129,7 @@
 
 ---
 
-## PHASE 12: Polish & UX Enhancements (P2)
+## PHASE 13: Polish & UX Enhancements (P2)
 **Goal:** Make app delightful
 **Impact:** User satisfaction and reviews
 **Estimated Time:** 2-3 days
@@ -1138,18 +1287,18 @@
 - [ ] Phase 5: Activity Enhancements ✅
 - **Deliverable:** Complete health tracking and GPS walks
 
-### Week 3: Engagement & Quality
+### Week 3: Engagement & Features
 - [ ] Phase 6: Reminders & Notifications ✅
 - [ ] Phase 7: Analytics & Charts ✅
-- [ ] Phase 9: PookiePop Polish ✅
-- [ ] Phase 10: Testing (Start) 🟡
-- **Deliverable:** Engaging app with notifications and analytics
+- [ ] Phase 8: Pookie Training System ✅
+- [ ] Phase 10: PookiePop Polish ✅
+- **Deliverable:** Engaging app with training, notifications, and analytics
 
 ### Week 4: Social, Testing & Launch
-- [ ] Phase 8: Social & Community ✅
-- [ ] Phase 10: Testing (Complete) ✅
-- [ ] Phase 11: Production Deployment ✅
-- [ ] Phase 12: Polish & UX ✅
+- [ ] Phase 9: Social & Community ✅
+- [ ] Phase 11: Testing & Quality ✅
+- [ ] Phase 12: Production Deployment ✅
+- [ ] Phase 13: Polish & UX ✅
 - **Deliverable:** Live on App Store! 🚀
 
 ---
@@ -1260,11 +1409,12 @@ When you finish a phase, check it off here:
 - [ ] Phase 5: Activity Enhancements
 - [ ] Phase 6: Reminders & Notifications
 - [ ] Phase 7: Analytics & Charts
-- [ ] Phase 8: Social & Community Features
-- [ ] Phase 9: PookiePop Polish
-- [ ] Phase 10: Testing & Quality Assurance
-- [ ] Phase 11: Production Deployment
-- [ ] Phase 12: Polish & UX Enhancements
+- [ ] Phase 8: Pookie Training System
+- [ ] Phase 9: Social & Community Features
+- [ ] Phase 10: PookiePop Polish
+- [ ] Phase 11: Testing & Quality Assurance
+- [ ] Phase 12: Production Deployment
+- [ ] Phase 13: Polish & UX Enhancements
 
 ---
 
