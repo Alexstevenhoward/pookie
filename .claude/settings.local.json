@@ -17,7 +17,12 @@
       "Bash(/usr/libexec/ApplicationFirewall/socketfilterfw:*)",
       "Bash(awk:*)",
       "Bash(plutil:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Read(//Users/alexhoward/CascadeProjects/**)",
+      "Bash(git checkout:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []
